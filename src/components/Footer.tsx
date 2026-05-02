@@ -1,4 +1,4 @@
-import { Plane } from 'lucide-react';
+import {} from 'lucide-react';
 
 export default function Footer() {
   return (
