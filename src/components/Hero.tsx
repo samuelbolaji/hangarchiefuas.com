@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Activity, Crosshair } from 'lucide-react';
+import { ArrowRight, Crosshair } from 'lucide-react';
 
 export default function Hero() {
   return (
