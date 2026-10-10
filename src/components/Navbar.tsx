@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import hangarLogo from '../images/hangar logo.png';
+import hangarLogo from "../../images/hangar logo.png";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
