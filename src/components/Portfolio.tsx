@@ -12,7 +12,7 @@ type Product = {
   id: string;
   name: string;
   image: string;
-  videoLink?: string;
+  video?: string;
   description: string;
   specs: Specification[];
 };
@@ -22,7 +22,7 @@ const products: Product[] = [
     id: 'eagle-1',
     name: 'Eagle-1',
     image: eagle1Image,
-    videoLink: 'https://www.youtube-nocookie.com/embed/IDxfES5cYAY?playsinline=1&rel=0',
+    video: '/videos/11%20October%202026.publer.com.mp4',
     description:
       'A high-endurance surveillance drone built for autonomous patrol and search and rescue. Equipped with real-time human detection and tracking technology, making it ideal for monitoring restricted zones.',
     specs: [
@@ -274,22 +274,24 @@ function ProductShowcase({ product }: { product: Product }) {
           </motion.div>
         </div>
 
-        {product.videoLink && (
+        {product.video && (
           <div className="mt-16 max-w-4xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">
               {product.name} in Flight
             </h3>
 
             <div className="rounded-3xl overflow-hidden border border-white/10 bg-black">
-              <iframe
-                src={product.videoLink}
-                title={`${product.name} flight demonstration`}
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="block w-full aspect-video"
-              />
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                poster={product.image}
+                aria-label={`${product.name} flight demonstration`}
+                className="block w-full aspect-video object-contain"
+              >
+                <source src={product.video} type="video/mp4" />
+                Your browser does not support video playback.
+              </video>
             </div>
           </div>
         )}
