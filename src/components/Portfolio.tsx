@@ -1,3 +1,4 @@
+import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import eagle1Image from '../../images/eagle1.png';
 import blackEagleImage from '../../images/black_eagle2.png';
@@ -58,6 +59,27 @@ const products: Product[] = [
 ];
 
 function ProductShowcase({ product }: { product: Product }) {
+  const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
+  const orderFormId = `${product.id}-order-form`;
+
+  function handleOrderSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const subject = `Order request: ${product.name}`;
+    const body = [
+      `Product: ${product.name}`,
+      `Customer name: ${formData.get('customerName')}`,
+      `Customer email: ${formData.get('customerEmail')}`,
+      `Quantity: ${formData.get('quantity')}`,
+      `Delivery notes: ${formData.get('deliveryNotes') || 'None'}`,
+    ].join('\n');
+
+    window.location.href =
+      `mailto:contact@hangarchiefuas.com?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(body)}`;
+  }
+
   return (
     <section id={product.id} className="py-24 relative overflow-hidden">
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
@@ -179,11 +201,79 @@ function ProductShowcase({ product }: { product: Product }) {
 
               <button
                 type="button"
+                aria-expanded={isOrderFormOpen}
+                aria-controls={orderFormId}
+                onClick={() => setIsOrderFormOpen((isOpen) => !isOpen)}
                 className="px-6 py-2 text-sm text-primary hover:text-white border border-primary/30 hover:border-primary hover:bg-primary/20 rounded-lg transition-all font-medium"
               >
-                Download Datasheet
+                {isOrderFormOpen ? 'Close Order Form' : 'Place Order'}
               </button>
             </div>
+
+            {isOrderFormOpen && (
+              <form
+                id={orderFormId}
+                onSubmit={handleOrderSubmit}
+                className="mt-6 space-y-4 border-t border-white/5 pt-6"
+              >
+                <p className="text-sm text-zinc-400">
+                  Send an order request for {product.name}. Your email app will open
+                  with the details; review and send the message to submit your request.
+                  Payment is arranged separately.
+                </p>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <label className="block text-sm text-zinc-300">
+                    Name
+                    <input
+                      name="customerName"
+                      autoComplete="name"
+                      required
+                      className="mt-2 w-full rounded-lg border border-white/10 bg-background px-3 py-2 text-white"
+                    />
+                  </label>
+                  <label className="block text-sm text-zinc-300">
+                    Email
+                    <input
+                      name="customerEmail"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      className="mt-2 w-full rounded-lg border border-white/10 bg-background px-3 py-2 text-white"
+                    />
+                  </label>
+                </div>
+
+                <label className="block text-sm text-zinc-300">
+                  Quantity
+                  <input
+                    name="quantity"
+                    type="number"
+                    min="1"
+                    step="1"
+                    defaultValue="1"
+                    required
+                    className="mt-2 w-full rounded-lg border border-white/10 bg-background px-3 py-2 text-white"
+                  />
+                </label>
+
+                <label className="block text-sm text-zinc-300">
+                  Delivery notes (optional)
+                  <textarea
+                    name="deliveryNotes"
+                    rows={3}
+                    className="mt-2 w-full rounded-lg border border-white/10 bg-background px-3 py-2 text-white"
+                  />
+                </label>
+
+                <button
+                  type="submit"
+                  className="w-full rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary/80"
+                >
+                  Continue to email
+                </button>
+              </form>
+            )}
           </motion.div>
         </div>
 
