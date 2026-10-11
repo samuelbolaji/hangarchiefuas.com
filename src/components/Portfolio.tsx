@@ -32,11 +32,9 @@ const products: Product[] = [
       { label: 'Max Payload', value: '600 g ' },
       { label: 'Flight Time (No Payload)', value: '10–15 minutes ' },
       { label: 'Flight Time (Max Payload)', value: '7–10 minutes' },
-      { label: 'Cruising Speed', value: '8 m/s' },
-      { label: 'Max Speed', value: '12 m/s' },
-      { label: 'Wind Resistance', value: '5 m/s ' },
-      {label: 'Estimated',  value: 'Values are estimated and may vary' },
-
+      { label: 'Cruising Speed', value: 'Not yet tested' },
+      { label: 'Max Speed', value: 'Not yet tested' },
+      { label: 'Wind Resistance', value: 'Not yet tested' },
     ],
   },
   {
@@ -47,15 +45,14 @@ const products: Product[] = [
       'A high-endurance surveillance drone built for autonomous patrol and search and rescue. Equipped with real-time human detection and tracking technology, making it ideal for monitoring restricted zones.',
     specs: [
             
-      { label: 'Max Takeoff Weight', value: '4.0 kg (Estimated)' },
-      { label: 'Empty Weight', value: '2.7 kg (Estimated)' },
-      { label: 'Max Payload', value: '1.3 kg (Estimated)' },
-      { label: 'Flight Time (No Payload)', value: '18–27 minutes (Estimated)' },
-      { label: 'Flight Time (Max Payload)', value: '8–13 minutes (Estimated)' },
+      { label: 'Max Takeoff Weight', value: '4.0 kg' },
+      { label: 'Empty Weight', value: '2.7 kg' },
+      { label: 'Max Payload', value: '1.3 kg ' },
+      { label: 'Flight Time (No Payload)', value: '18–27 minutes' },
+      { label: 'Flight Time (Max Payload)', value: '8–13 minutes' },
       { label: 'Cruising Speed', value: 'Not yet tested' },
       { label: 'Max Speed', value: 'Not yet tested' },
       { label: 'Wind Resistance', value: 'Not yet tested' },
-      {label: 'Estimated',  value: 'Values are estimated and may vary' },
 
     ],
   },
