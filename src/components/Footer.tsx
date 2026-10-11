@@ -1,4 +1,5 @@
 import {} from 'lucide-react';
+import hangarLogo from '../../images/hangar logo.png';
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
             <div className="flex items-center gap-2">
 
             <img
-              src="/images/hangar logo.png"
+              src={hangarLogo}
               alt="HangarChief UAS Logo"
               className="h-10 w-10 rounded-full object-cover drop-shadow-md"
             />

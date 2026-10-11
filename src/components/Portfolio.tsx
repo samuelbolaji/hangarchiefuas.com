@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import eagle1Image from '../../images/eagle1.png';
+import blackEagleImage from '../../images/black_eagle2.png';
 
 type Specification = {
   label: string;
@@ -19,7 +21,7 @@ const products: Product[] = [
   {
     id: 'eagle-1',
     name: 'Eagle-1',
-    image: '/images/eagle1.png', // Replace with your image path if local, e.g., '/eagle1.png'
+    image: eagle1Image,
     video: '/drone-flight.mp4',
     videoLink: 'https://www.youtube.com/watch?v=your-video-id', // Add your video link here
     description:
@@ -38,7 +40,7 @@ const products: Product[] = [
   {
     id: 'black-eagle',
     name: 'Black Eagle',
-    image: '/images/black_eagle2.png', // Replace with your image path if local, e.g., '/black_eagle2.png'
+    image: blackEagleImage,
     videoLink: 'https://www.youtube.com/watch?v=your-video-id', // Add your video link here
     description:
       'A high-endurance surveillance drone built for autonomous patrol and search and rescue. Equipped with real-time human detection and tracking technology, making it ideal for monitoring restricted zones.',
