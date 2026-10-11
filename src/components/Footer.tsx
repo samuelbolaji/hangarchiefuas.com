@@ -7,7 +7,13 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center mb-12">
           <div className="flex flex-col items-center md:items-start gap-4 mb-8 md:mb-0">
             <div className="flex items-center gap-2">
-              <img src="/hangar_logo.png" alt="HangarChief UAS Logo" className="h-8 w-auto object-contain drop-shadow-md" />
+
+            <img
+              src="/images/hangar logo.png"
+              alt="HangarChief UAS Logo"
+              className="h-10 w-10 rounded-full object-cover drop-shadow-md"
+            />
+
               <span className="font-bold text-lg tracking-wider text-white uppercase">HangarChief <span className="text-primary">UAS</span></span>
             </div>
             <a href="mailto:contact@hangarchiefuas.com" className="text-zinc-400 hover:text-primary transition-colors text-sm font-medium">

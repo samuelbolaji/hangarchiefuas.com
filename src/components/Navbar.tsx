@@ -26,7 +26,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3 md:gap-4">
-            <img src={hangarLogo} alt="HangarChief UAS Logo" className="h-16 md:h-20 w-auto object-contain drop-shadow-md" />
+           <img src={hangarLogo} alt="HangarChief UAS Logo" className="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover drop-shadow-md" />
             <span className="font-bold text-xl md:text-2xl tracking-wider text-white uppercase">HangarChief <span className="text-primary">UAS</span></span>
           </div>
 

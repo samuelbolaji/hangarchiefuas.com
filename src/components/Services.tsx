@@ -1,21 +1,36 @@
 import { motion } from 'framer-motion';
-import { PenTool, Wind, Cpu } from 'lucide-react';
+import { PenTool, Wind, Cpu, Plane, Map, Wrench } from 'lucide-react';
 
 const services = [
   {
     icon: <PenTool className="w-8 h-8 text-primary" />,
     title: "UAV Structural Design",
-    description: "Advanced composite structures engineered for maximum payload capacity and minimal weight, ensuring durability in extreme industrial environments."
+    description: "Advanced composite structures engineered for strength, durability, and reduced weight."
   },
   {
     icon: <Wind className="w-8 h-8 text-accent" />,
     title: "CFD Simulation",
-    description: "High-fidelity Computational Fluid Dynamics simulating real-world aerodynamics to optimize flight efficiency, thermal management, and high-speed stability."
+    description: "Aerodynamic simulations to optimize flight efficiency, stability, and performance."
   },
   {
     icon: <Cpu className="w-8 h-8 text-secondary" />,
     title: "Drone AI & Vision",
-    description: "Integration of edge computing and computer vision models for real-time autonomous navigation, obstacle avoidance, and intelligent payload processing."
+    description: "AI-powered computer vision for human detection, obstacle awareness, and intelligent drone operations."
+  },
+  {
+    icon: <Wrench className="w-8 h-8 text-secondary" />,
+    title: "Drone Maintenance & Repair",
+    description: "We diagnose, repair, and maintain drones for reliable performance."
+  },
+  {
+    icon: <Plane className="w-8 h-8 text-secondary" />,
+    title: "Drone Pilot Training",
+    description: "Practical drone flight training to develop safe flying skills and operational confidence."
+  },
+  {
+    icon: <Map className="w-8 h-8 text-secondary" />,
+    title: "Drone Aerial Mapping & Surveying",
+    description: "Accurate drone aerial mapping and surveying for land, farms, and infrastructure."
   }
 ];
 

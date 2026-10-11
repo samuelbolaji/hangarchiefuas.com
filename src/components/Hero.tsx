@@ -23,14 +23,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="text-left"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              Introducing Eagle-1 System
-            </div>
-            
+
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight text-white">
               Industrial-Grade <br />
               <span className="text-gradient">Autonomous Architecture</span>
