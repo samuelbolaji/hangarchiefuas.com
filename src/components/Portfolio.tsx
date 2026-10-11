@@ -12,8 +12,7 @@ type Product = {
   id: string;
   name: string;
   image: string;
-  video?: string;
-  videoLink?: string; // Added field for an external video link (e.g. YouTube, Vimeo)
+  videoLink?: string;
   description: string;
   specs: Specification[];
 };
@@ -23,8 +22,7 @@ const products: Product[] = [
     id: 'eagle-1',
     name: 'Eagle-1',
     image: eagle1Image,
-    video: '/drone-flight.mp4',
-    videoLink: 'https://www.youtube.com/watch?v=your-video-id', // Add your video link here
+    videoLink: 'https://www.youtube-nocookie.com/embed/IDxfES5cYAY?playsinline=1&rel=0',
     description:
       'A high-endurance surveillance drone built for autonomous patrol and search and rescue. Equipped with real-time human detection and tracking technology, making it ideal for monitoring restricted zones.',
     specs: [
@@ -42,7 +40,6 @@ const products: Product[] = [
     id: 'black-eagle',
     name: 'Black Eagle',
     image: blackEagleImage,
-    videoLink: 'https://www.youtube.com/watch?v=your-video-id', // Add your video link here
     description:
       'A high-endurance surveillance drone built for autonomous patrol and search and rescue. Equipped with real-time human detection and tracking technology, making it ideal for monitoring restricted zones.',
     specs: [
@@ -277,26 +274,22 @@ function ProductShowcase({ product }: { product: Product }) {
           </motion.div>
         </div>
 
-        {/* Flight video player: shown only for products with a local video file */}
-        {product.video && (
+        {product.videoLink && (
           <div className="mt-16 max-w-4xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">
               {product.name} in Flight
             </h3>
 
             <div className="rounded-3xl overflow-hidden border border-white/10 bg-black">
-              <video
-                controls
-                playsInline
-                preload="metadata"
-                poster={product.image}
-                aria-label={`${product.name} flight demonstration`}
-                className="block w-full aspect-video object-contain"
-              >
-                <source src={product.video} type="video/mp4" />
-                Your browser does not support video playback.{' '}
-                <a href={product.video}>Download the flight video.</a>
-              </video>
+              <iframe
+                src={product.videoLink}
+                title={`${product.name} flight demonstration`}
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="block w-full aspect-video"
+              />
             </div>
           </div>
         )}
